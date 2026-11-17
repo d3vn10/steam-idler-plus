@@ -36,7 +36,7 @@
       "providerShortName": null,
       "signingIdentity": null
     },
-    "resources": ["libs/*", "LICENSE", "THIRD-PARTY-NOTICES.md", ".installed"],
+    "resources": ["libs/*", ".installed"],
     "linux": {
       "deb": {
         "depends": ["libsecret-1-0"]
@@ -48,7 +48,6 @@
         "bundleMediaFramework": true
       }
     },
-    "licenseFile": "LICENSE",
     "createUpdaterArtifacts": "v1Compatible"
   },
   "plugins": {
