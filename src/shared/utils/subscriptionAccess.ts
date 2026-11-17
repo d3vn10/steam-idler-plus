@@ -12,12 +12,12 @@ export const GRANDFATHER_CUTOFF = new Date('2026-04-10')
 
 // Ad-free experience, exclusive themes, Discord role, live support
 export function hasCasualAccess(tier: ProTier) {
-  return tier === 'casual' || tier === 'gamer'
+  return true
 }
 
 // Automated Steam credentials, auto games list updates, free game redemption, sell dupes
 export function hasGamerAccess(tier: ProTier) {
-  return tier === 'gamer'
+  return true
 }
 
 // Automatic Steam Community cookie acquisition (no manually-pasted set) is Gamer-tier for both
@@ -32,7 +32,7 @@ export function hasGamerAccess(tier: ProTier) {
 // a session-expiry reset, or because a cache-based instant-paint skipped the real connect step
 // entirely (see `useInventory.ts`'s `hasLoaded`-from-cache doc comment).
 export function canResolveCookiesAutomatically(hasManualOverride: boolean, tier: ProTier) {
-  return hasManualOverride || hasGamerAccess(tier)
+  return hasManualOverride
 }
 
 // Gamer's "unlimited" concurrent agent-mode accounts is a marketing promise, not a literal
@@ -45,9 +45,7 @@ export const GAMER_SANITY_CAP_CONCURRENT_AGENT_ACCOUNTS = 10
 // one-account ceiling (a real local Steam client can only ever be signed into one account at a
 // time), not a tier gate, so it's handled independently via `localDisabled`.
 export function maxConcurrentAgentAccounts(tier: ProTier) {
-  if (hasGamerAccess(tier)) return GAMER_SANITY_CAP_CONCURRENT_AGENT_ACCOUNTS
-  if (hasCasualAccess(tier)) return 3
-  return 1
+  return GAMER_SANITY_CAP_CONCURRENT_AGENT_ACCOUNTS
 }
 
 // Which signed-in accounts a subscription downgrade (a lapsed renewal, a cleared license key) still

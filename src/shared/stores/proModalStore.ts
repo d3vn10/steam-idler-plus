@@ -7,7 +7,7 @@ interface ProModalStore {
   // titlebar-button open (nothing specific to scroll to/highlight). Reset to `null` on close so a
   // stale highlight never leaks into the next open. See GoProModal/index.tsx's `tierRef` effect and
   // TierCard's `isRequired` prop for how this is consumed.
-  requiredTier: ProTier
+  requiredTier: ProTier | null
   open: () => void
   openWithTier: (tier: ProTier) => void
   close: () => void

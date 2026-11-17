@@ -93,7 +93,7 @@
       "description": "Steam is closed. Please relaunch Steam to continue."
     },
     "banner": {
-      "pastDue": "Your PRO subscription is past due. Please update your payment method to avoid losing access.",
+      "pastDue": "Error faking new sub.",
       "manageSubscription": "Manage Subscription"
     },
     "badges": {
@@ -387,7 +387,7 @@
   "dashboard": {
     "sidebar": {
       "goPro": {
-        "title": "Unlock PRO Perks"
+        "title": "Error unlocking PRO"
       },
       "nav": {
         "games": "Games",

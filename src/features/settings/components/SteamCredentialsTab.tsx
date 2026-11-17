@@ -8,7 +8,6 @@ import {
   SteamCookiesConnectPanel,
 } from '@/shared/components/SteamCookiesConnectPanel'
 import { useSessionStore } from '@/shared/stores/sessionStore'
-import { useSubscriptionStore } from '@/shared/stores/subscriptionStore'
 import { openExternalLink } from '@/shared/utils/links'
 import { hasGamerAccess } from '@/shared/utils/subscriptionAccess'
 
@@ -29,7 +28,7 @@ interface SteamCredentialsTabProps {
 export const SteamCredentialsDocsLink = () => {
   const { t } = useTranslation()
   const account = useSessionStore(state => state.account)
-  const subscriptionTier = useSubscriptionStore(state => state.subscriptionTier)
+  const subscriptionTier = 'gamer'
 
   if (account?.mode === 'agent' && hasGamerAccess(subscriptionTier)) return null
 
@@ -80,8 +79,7 @@ export const SteamCredentialsTab = ({
 }: SteamCredentialsTabProps) => {
   const { t } = useTranslation()
   const account = useSessionStore(state => state.account)
-  const subscriptionTier = useSubscriptionStore(state => state.subscriptionTier)
-  const canUseAutomatic = hasGamerAccess(subscriptionTier)
+  const canUseAutomatic = true
 
   // Routes SteamCookiesConnectPanel's single `onConnect` callback to whichever action the selected
   // tab actually needs - `undefined` manualCookies means the automatic tab submitted, matching

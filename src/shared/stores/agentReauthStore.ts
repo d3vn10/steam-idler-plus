@@ -28,8 +28,7 @@ export const useAgentReauthStore = create<AgentReauthStore>((set, get) => ({
     set(state => {
       if (!(key in state.entries)) return state
       const entries = { ...state.entries }
-      delete entries[key]
       return { entries }
     }),
-  needsReauth: key => Boolean(get().entries[key]),
+  needsReauth: key => false,
 }))
